@@ -68,7 +68,7 @@ resource was created outside of GitHub (like using `terraform push`).
 
 Atlas has the ability store multi-line files as variables. The recommended way to manage your secret/sensitive multi-line files (SSL keys, certificates, etc.) is to add them as [Terraform Variables](#terraform-variables) in Atlas.
 
-Just like secret strings, it is recommended that you never check-in these multi-line secret files to version control. Best practice is setting a blank [variable in Terraform](https://www.terraform.io/docs/configuration/variables.html) that resources utilizing the file will reference, `terraform push` to Atlas, navigate to the "Variables" section of your Atlas Environment, paste the contents of that file into the variable and save.
+Just like secret strings, it is recommended that you never check-in these multi-line secret files to version control. Best practice is setting a blank [variable in Terraform](https://www.terraform.io/docs/configuration/variables.html) that resources utilizing the file will reference, `terraform push` to Atlas, navigate to the "Variables" section of your Atlas Environment, paste the contents of that file into the variable and save. See example of setting variables below.
 
 Now, any resource that consumes that variable will have access to the file without having to check it in to version control. If you want to run Terraform locally, that file will still need to be passed in as a variable. View the [Terraform Variable Documentation](https://www.terraform.io/docs/configuration/variables.html) for different ways to accomplish this.
 
@@ -77,6 +77,13 @@ A few things to note...
 - [Environment Variables](#environment-variables) do not support multi-line files
 - The `.tfvars` file does not support multi-line files
 - You can still use `.tfvars` to define your blank variable, however, you will not be able to actually set the variable in `.tfvars` with the multi-line file contents like you would a variable in a `.tf` file
+
+```
+variable "certificate_body" {}
+variable "certificate_key" {}
+variable "private_key" {}
+variable "public_key" {}
+```
 
 - - -
 
