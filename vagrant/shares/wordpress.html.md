@@ -1,12 +1,12 @@
 ---
-title: "Using Vagrant Share with Wordpress"
+title: "Using Vagrant Share with WordPress"
 ---
 
-# Using Vagrant Share with Wordpress
+# Using Vagrant Share with WordPress
 
-Vagrant Share works with Wordpress, but only when relative URLs are used.
+Vagrant Share works with WordPress, but only when relative URLs are used.
 
-By default, Wordpress uses absolute URLs. This means
+By default, WordPress uses absolute URLs. This means
 that theme HTML may contain `http://127.0.0.1/asset.png` instead
 of `/asset.png`.
 
