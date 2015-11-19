@@ -71,7 +71,7 @@ directory and/or template paths are incorrect. Double check that the paths
 specified when you linked the GitHub repository match the actual paths 
 to your template file._
 - SEC-001: Your data was being unpacked from a tarball uploaded to Atlas
-and encountered an error. This can be caused by bad permissions, improper
+and encountered an error. This can be caused by bad permissions, using
 symlinks or very large tarball sizes.
 
 ### Community Resources
