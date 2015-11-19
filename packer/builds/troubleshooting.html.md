@@ -64,7 +64,8 @@ This is a short list of internal errors and what they mean.
 - SIC-001: Your data was being ingressed from GitHub but failed
 to properly unpack. This can be caused by bad permissions, using
 symlinks or very large repository sizes. Using symlinks inside of the
-packer directory will result in this internal error.
+packer directory, or the root of the repository, if the packer directory
+is unspecified, will result in this internal error.
 _**Note:** Most often this error occurs
 when applications or builds are linked to a GitHub repository and the 
 directory and/or template paths are incorrect. Double check that the paths 
