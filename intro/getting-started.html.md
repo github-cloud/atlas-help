@@ -17,7 +17,7 @@ of operator teams.
 
 When using Atlas, it's important to remember it attempts to serve those
 different groups and contexts within an organization. Vagrant features, for example,
-have a different user experience then Consul monitoring features.
+have a different user experience than Consul monitoring features.
 
 ## Tutorials
 
