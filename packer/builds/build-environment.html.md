@@ -62,6 +62,7 @@ for ways around this limitation.
 Currently, each builder defined in the Packer template receives
 the following hardware resources. This is subject to change.
 
+- 1 CPU core
 - 2 GB of memory
 - 20 GBs of disk space
 
