@@ -4,12 +4,6 @@ title: "Schedule Periodic Builds in Atlas"
 
 # Schedule Periodic Builds in Atlas
 
-<div class="alert-infos">
-  <div class="alert-info">
-    This is an unreleased beta feature. Please <a href="/help/support">contact support</a> if you are interested in helping us test this feature.
-  </div>
-</div>
-
 Atlas can automatically run a Packer build and
 create artifacts on a specified schedule. This option is disabled by default and can be enabled by an
 organization owner on a per-[environment](/help/glossary#environment) basis.
