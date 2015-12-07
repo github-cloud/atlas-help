@@ -26,7 +26,7 @@ for managing multiple environments is:
 		- stage.tfvars
 	- module-vpc
 	- module-web
-	- module db
+	- module-db
 
 Then, in the `main.tf` in each of the environments, you can easily reference
 the modules and their output:
