@@ -68,7 +68,7 @@ resource was created outside of GitHub (like using `terraform push`).
 
 Atlas has the ability to store multi-line files as variables. The recommended way to manage your secret/sensitive multi-line files (private key, SSL cert, SSL private key, CA, etc.) is to add them as [Terraform Variables](#terraform-variables) or [Environment Variables](#environment-variables) in Atlas.
 
-Just like secret strings, it is recommended that you never checkin these multi-line secret files to version control by following the below steps.
+Just like secret strings, it is recommended that you never check in these multi-line secret files to version control by following the below steps.
 
 Set the [variables](https://www.terraform.io/docs/configuration/variables.html) in your Terraform template that resources utilizing the secret file will reference:
 
@@ -97,7 +97,7 @@ Set the [variables](https://www.terraform.io/docs/configuration/variables.html) 
 
 Alternatively, you can add or update variables manually by going to the "Variables" section of your Atlas Environment and pasting the contents of the file in as the value.
 
-Now, any resource that consumes that variable will have access to the file without having to check it in to version control. If you want to run Terraform locally, that file will still need to be passed in as a variable in the CLI. View the [Terraform Variable Documentation](https://www.terraform.io/docs/configuration/variables.html) for more info on how to accomplish this.
+Now, any resource that consumes that variable will have access to the variable value, without having to check the file into version control. If you want to run Terraform locally, that file will still need to be passed in as a variable in the CLI. View the [Terraform Variable Documentation](https://www.terraform.io/docs/configuration/variables.html) for more info on how to accomplish this.
 
 A few things to note...
 
