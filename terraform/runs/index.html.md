@@ -8,11 +8,14 @@ A "run" in Atlas represents the logical grouping of two Terraform steps - a
 "plan" and an "apply". The distinction between these two phases of a Terraform
 run are documented below.
 
-When a [new run is created](/help/terraform/runs/starting), Atlas
-automatically queues a Terraform plan. Because a plan does not change the state
-of infrastructure, it is safe to execute a plan multiple times without
+When a [new run is created](/help/terraform/runs/starting), Atlas automatically
+queues a Terraform plan. Because a plan does not change the state of
+infrastructure, it is safe to execute a plan multiple times without
 consequence. An apply executes the output of a plan and actively changes
-infrastructure. You can read more about Terraform plans and applies below.
+infrastructure. To prevent race conditions, Atlas will only execute one
+plan/apply at a time (plans for validating GitHub Pull Requests are allowed to
+happen concurrently, as they do not modify state). You can read more about
+Terraform plans and applies below.
 
 ## Plan
 
@@ -42,6 +45,20 @@ user confirmation, Atlas will queue and execute the Terraform apply. It is also
 possible to configure Atlas to
 [automatically apply](/help/terraform/runs/automatic-applies), but this option is
 disabled by default.
+
+## Environment Locking
+
+During run execution, Atlas will lock the environment to prevent other plans
+and applies from executing simultaneously. When the run completes, the next
+pending run, if any, will be started.
+
+An administrator of the environment can also manually lock the environment, for
+example during a maintenance period.
+
+You can see the lock status of an environment, and lock/unlock the environment
+by visiting that environment's settings page.
+
+## Notifications
 
 To receive alerts when user confirmation is needed or for any other phase of the
 run process, you can
