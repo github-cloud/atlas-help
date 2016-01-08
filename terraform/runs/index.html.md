@@ -46,6 +46,20 @@ possible to configure Atlas to
 [automatically apply](/help/terraform/runs/automatic-applies), but this option is
 disabled by default.
 
+## Environment Locking
+
+During run execution, Atlas will lock the environment to prevent other plans
+and applies from executing simultaneously. When the run completes, the next
+pending run, if any, will be started.
+
+An administrator of the environment can also manually lock the environment, for
+example during a maintenance period.
+
+You can see the lock status of an environment, and lock/unlock the environment
+by visiting that environment's settings page.
+
+## Notifications
+
 To receive alerts when user confirmation is needed or for any other phase of the
 run process, you can
 [enable run notifications](/help/terraform/runs/notifications) for your
