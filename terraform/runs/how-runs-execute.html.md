@@ -33,3 +33,23 @@ updated in the UI and changed state is saved back to Atlas
 
 Note: In the case of a failed apply, it's safe to re-run. This is possible
 because Terraform saves partial state and can "pick up where it left off".
+
+### Customizing Terraform Execution
+
+As described in the steps above, Atlas will run Terraform against your configuration
+when changes are pushed via GitHub, `terraform push`, or manually queued in the 
+Atlas UI. There are a few options available to customize the execution of Terraform.
+These are:
+
+- The directory that contains your enviromment's Terraform configuration can be customized 
+to support directory structures with more than one set of Terraform configuration files.
+To customize the directory for your Atlas Environment, set the _Terraform Directory_ 
+property in the _GitHub Integration_ settings for your environment. This is equivalent to 
+passing the `[dir]` argument when running Terraform in your local shell.
+- The directory in which Terraform is executed from can be customized to support directory 
+structures with nested sub-directories or configurations that use Terraform modules with 
+relative paths. To customize the directory used for Terraform execution in your Atlas 
+Environment, set the `TF_ATLAS_DIR` 
+[environment variable](/help/terraform/runs/variables-and-configuration#environment-variables)
+to the relative path of the directory - ie. `terraform/production`. This is equivalent to 
+changing directories to the appropriate path in your local shell and then executing Terraofrm.
