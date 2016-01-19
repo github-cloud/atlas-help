@@ -44,6 +44,25 @@ more about [debugging Packer builds](https://packer.io/docs/other/debugging.html
 Your build may be failing by requesting larger memory or
 disk usage then is available. Read more about the [build environment](/help/packer/builds/build-environment#hardware-limitations).
 
+_Typically_ Packer builds that fail due to requesting hardware limits
+that exceed Atlas's [hardware limitations](/help/packer/builds/build-environment#hardware-limitations) 
+will fail with a _The operation was canceled_ error message as shown below:
+
+```
+...
+==> vmware-iso: Starting virtual machine...
+    vmware-iso: The VM will be run headless, without a GUI. If you want to
+    vmware-iso: view the screen of the VM, connect via VNC without a password to
+    vmware-iso: 127.0.0.1:5918
+==> vmware-iso: Error starting VM: VMware error: Error: The operation was canceled
+==> vmware-iso: Waiting 4.604392397s to give VMware time to clean up...
+==> vmware-iso: Deleting output directory...
+Build 'vmware-iso' errored: Error starting VM: VMware error: Error: The operation was canceled
+
+==> Some builds didn't complete successfully and had errors:
+--> vmware-iso: Error starting VM: VMware error: Error: The operation was canceled
+```
+
 ### Local Debugging
 
 Sometimes it's faster to debug failing builds locally. In this case,
