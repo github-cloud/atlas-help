@@ -41,7 +41,7 @@ when changes are pushed via GitHub, `terraform push`, or manually queued in the
 Atlas UI. There are a few options available to customize the execution of Terraform.
 These are:
 
-- The directory that contains your enviromment's Terraform configuration can be customized 
+- The directory that contains your environment's Terraform configuration can be customized 
 to support directory structures with more than one set of Terraform configuration files.
 To customize the directory for your Atlas Environment, set the _Terraform Directory_ 
 property in the _GitHub Integration_ settings for your environment. This is equivalent to 
@@ -52,4 +52,4 @@ relative paths. To customize the directory used for Terraform execution in your 
 Environment, set the `TF_ATLAS_DIR` 
 [environment variable](/help/terraform/runs/variables-and-configuration#environment-variables)
 to the relative path of the directory - ie. `terraform/production`. This is equivalent to 
-changing directories to the appropriate path in your local shell and then executing Terraofrm.
+changing directories to the appropriate path in your local shell and then executing Terraform.
