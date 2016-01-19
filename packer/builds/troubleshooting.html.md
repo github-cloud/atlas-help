@@ -45,8 +45,8 @@ Your build may be failing by requesting larger memory or
 disk usage then is available. Read more about the [build environment](/help/packer/builds/build-environment#hardware-limitations).
 
 _Typically_ Packer builds that fail due to requesting hardware limits
-that exceed Atlas's hardware limitations will fail with a 
-_The operation was canceled_ error message as shown below:
+that exceed Atlas's [hardware limitations](/help/packer/builds/build-environment#hardware-limitations) 
+will fail with a _The operation was canceled_ error message as shown below:
 
 ```
 ...
