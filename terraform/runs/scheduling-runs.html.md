@@ -21,6 +21,10 @@ notifications.
 When used with [automatic applies](/help/terraform/runs/automatic-applies), this feature can help converge
 changes to infrastructure without human input.
 
+Atlas will not queue new runs while another plan or apply is in progress, or if
+the environment has been manually locked. See [Environment
+Locking](/help/terraform/runs#environment-locking) for more information.
+
 ## Enabling Periodic Plans
 
 To enable periodic plans for an environment, visit the environment settings page in
