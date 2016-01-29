@@ -81,3 +81,13 @@ You can enable this feature on a per-environment basis from the
 Combined with
 [Terraform auto apply](/help/terraform/runs/automatic-applies), you can
 continuously deliver infrastructure using Terraform and Atlas.
+
+## Terraform Plugins
+
+If you are using a custom [Terraform Plugin](https://www.terraform.io/docs/plugins/index.html)
+binary for a provider or provisioner that's not currently supported,
+you can still use this in Atlas.
+
+All you need to do is include a Linux AMD64 binary for the plugin
+in the directory in which you run Terraform commands from and Atlas
+will pick it up and use it.
