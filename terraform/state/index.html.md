@@ -17,4 +17,4 @@ storage. It also allows you to delegate the outputs to other teams.
 This allows your infrastructure to be more easily broken down into
 components that multiple teams can access.
 
-Read [more about remote state](https://terraform.io/docs/state/remote.html).
+Read [more about remote state](https://www.terraform.io/docs/state/remote/index.html).
