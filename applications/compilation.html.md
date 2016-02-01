@@ -87,10 +87,14 @@ is demonstrated below.
 
 The artifact can be stored as any type or under any artifact in Atlas,
 as long as it is accessible later by the same user triggering builds
-that use the artifact.
+that use the artifact. It is worth noting, that one should use `.tar.gz` as their
+artifact in order to properly to utilize the pipeline. When a Build Template is specified, Atlas
+expects the Artifact of the compiled application to be a `.tar.gz` file. This archive is autoextracted
+to a source directory `app/` on the Packer build specified.
 
 ### Complete Example
 
+#### Application Compilation Template
 This template is a working example for a project that installs and
 compiles the application using a `Makefile` and outputs
 a `.tar.gz` archive of the compiled application. It then uploads
@@ -147,4 +151,48 @@ as it uses the `ATLAS_APPLICATION_SLUG` environment variable, i.e `acmeinc/webap
           }
         ]
       ]
+    }
+
+#### Associated Packer Build Template
+This template is a working example of how to use the resulting Artifact from the Application Compilation in an associated Packer Build Template. When Compile Application is enabled in Atlas, the compiled artifact will be injected into the Build Template specified. The artifact is accessible to the builder using the `app/` source directory. This directory will contain the extracted archive from the Compilation step:
+
+    {
+      "variables": {
+        "aws_access_key": "{{ env `aws_access_key` }}",
+        "aws_secret_key": "{{ env `aws_access_key` }}",
+        "atlas_username": "{{ env `atlas_username` }}"
+      },
+      "builders": [
+        {
+          "type": "amazon-ebs",
+          "access_key": "{{user `aws_access_key`}}",
+          "secret_key": "{{user `aws_secret_key`}}",
+          "region": "us-east-1",
+          "source_ami": "ami-9a562df2",
+          "instance_type": "t2.micro",
+          "ssh_username": "ubuntu",
+          "ami_name": "make-build {{timestamp}}"
+        }
+      ],
+      "provisioners": [
+        {
+          "type": "file",
+          "source": "app/",
+          "destination": "/path/to/dest"
+        }
+      ],
+      "post-processors": [
+        {
+          "type": "atlas",
+          "artifact": "{{user `atlas_username`}}/make-build",
+          "artifact_type": "amazon.image",
+          "metadata": {
+            "created_at": "{{timestamp}}"
+          }
+        }
+      ],
+      "push": {
+        "name": "{{user `atlas_username`}}/make-build",
+        "vcs": false
+      }
     }

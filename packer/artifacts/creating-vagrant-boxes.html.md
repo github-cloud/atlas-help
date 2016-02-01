@@ -101,7 +101,7 @@ For `vagrant.box` type artifacts, you can specify keys in the metadata block:
 `virtualbox`, `vmware_desktop`, `aws` and so on _(required)_
 - `version`: This is the Vagrant box [version](/help/vagrant/boxes/lifecycle) and is constrained to the
 same formatting as in the web UI: `*.*.*` _(optional, but required for boxes
-with multiple providers)_
+with multiple providers). The version will increment automatically if left blank._
 - `description`: This is the desciption that will be shown with the
 version of the box. You can use Markdown for links and style. _(optional)_
 
