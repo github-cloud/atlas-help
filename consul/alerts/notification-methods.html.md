@@ -84,7 +84,7 @@ To configure PagerDuty:
 ## Webhook
 
 Notifications can be sent to custom Webhook URLs to allow for integration
-into third-party systems. An HTTP _Post_ will be with the Post _Body_
+into third-party systems. An HTTP _Post_ will be sent with the Post _Body_
 containing the JSON payload with the notification details. Example JSON
 payloads are shown below.
 
@@ -112,14 +112,13 @@ Example JSON payload for Application Notifications:
 Valid values for `status` are:
 
 ```
-compile_errored
-compile_finished
 compile_started
+compile_finished
+compile_errored
+job_started
+job_finished
 job_canceled
 job_errored
-job_finished
-job_started
-
 ```
 
 ### Consul Alerts
@@ -152,9 +151,9 @@ Example JSON payload for Alert Notifications:
 Valid values for `status` are:
 
 ```
-critical
 passing
 warning
+critical
 ```
 
 ### Packer Builds
@@ -175,10 +174,10 @@ Example JSON payload for Build Notifications:
 Valid values for `status` are:
 
 ```
+starting
+finished
 canceled
 errored
-finished
-starting
 ```
 
 #### Terraform Runs
@@ -200,10 +199,10 @@ Example JSON payload for Run Notifications:
 Valid values for `status` are:
 
 ```
-applied
-applying
+planned
 confirmed
 discarded
+applied
+applying
 errored
-planned
 ```
