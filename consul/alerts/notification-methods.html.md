@@ -174,7 +174,7 @@ Example JSON payload for Build Notifications:
 Valid values for `status` are:
 
 ```
-starting
+started
 finished
 canceled
 errored
