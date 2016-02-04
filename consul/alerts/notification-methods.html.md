@@ -86,9 +86,7 @@ To configure PagerDuty:
 Notifications can be sent to custom Webhook URLs to allow for integration
 into third-party systems. An HTTP _Post_ will be sent with the Post _Body_
 containing the JSON payload with the notification details. Example JSON
-payloads are shown below.
-
-> Note: The Webhook URL must be accessible from Atlas.
+payloads are shown below. **Note**: The Webhook URL must be accessible from Atlas.
 
 ### Example Notification Payloads
 
@@ -96,113 +94,97 @@ payloads are shown below.
 
 Example JSON payload for Application Notifications:
 
-```
-{
-  "application_alert": {
-    "description": "Compile started",
-    "slug": "example-org/example-app",
-    "version": 19,
-    "message": "Update index.html",
-    "status": "compile_started",
-    "url": "https://atlas.hashicorp.com/example-org/applications/example-app/versions/19"
-  }
-}
-```
+    {
+      "application_alert": {
+        "description": "Compile started",
+        "slug": "example-org/example-app",
+        "version": 19,
+        "message": "Update index.html",
+        "status": "compile_started",
+        "url": "https://atlas.hashicorp.com/example-org/applications/example-app/versions/19"
+      }
+    }
 
 Valid values for `status` are:
 
-```
-compile_started
-compile_finished
-compile_errored
-job_started
-job_finished
-job_canceled
-job_errored
-```
+    compile_started
+    compile_finished
+    compile_errored
+    job_started
+    job_finished
+    job_canceled
+    job_errored
 
 ### Consul Alerts
 
 Example JSON payload for Alert Notifications:
 
-```
-{
-  "consul_alert": {
-    "environment": "example-org/example-environment",
-    "datacenter": "example-environment",
-    "type": "service",
-    "key": "23a807b41eabd617a45beee28c0001a8",
-    "number": 5,
-    "status": "warning",
-    "health_check": {
-      "node": "example-node",
-      "notes": "",
-      "output": "",
-      "status": "warning",
-      "check_id": "service:example-service",
-      "check_name": "Service 'example-service' check",
-      "service_id": "example-service"
-    },
-    "logical_service": null
-  }
-}
-```
+    {
+      "consul_alert": {
+        "environment": "example-org/example-environment",
+        "datacenter": "example-environment",
+        "type": "service",
+        "key": "23a807b41eabd617a45beee28c0001a8",
+        "number": 5,
+        "status": "warning",
+        "health_check": {
+          "node": "example-node",
+          "notes": "",
+          "output": "",
+          "status": "warning",
+          "check_id": "service:example-service",
+          "check_name": "Service 'example-service' check",
+          "service_id": "example-service"
+        },
+        "logical_service": null
+      }
+    }
 
 Valid values for `status` are:
 
-```
-passing
-warning
-critical
-```
+    passing
+    warning
+    critical
 
 ### Packer Builds
 
 Example JSON payload for Build Notifications:
 
-```
-{
-  "packer_alert": {
-    "build_configuration": "example-org/example-build",
-    "number": 6,
-    "status": "started",
-    "url": "https://atlas.hashicorp.com/example-org/build-configurations/example-build/builds/6"
-  }
-}
-```
+    {
+      "packer_alert": {
+        "build_configuration": "example-org/example-build",
+        "number": 6,
+        "status": "started",
+        "url": "https://atlas.hashicorp.com/example-org/build-configurations/example-build/builds/6"
+      }
+    }
 
 Valid values for `status` are:
 
-```
-started
-finished
-canceled
-errored
-```
+    started
+    finished
+    canceled
+    errored
 
 #### Terraform Runs
 
 Example JSON payload for Run Notifications:
 
-```
-{
-  "terraform_alert": {
-    "environment": "example-org/example-environment",
-    "message": "Queued manually in Atlas",
-    "number": 48,
-    "status": "applying",
-    "url": "https://atlas.hashicorp.com/example-org/environments/example-environment/changes/runs/48"
-  }
-}
-```
+    {
+      "terraform_alert": {
+        "environment": "example-org/example-environment",
+        "message": "Queued manually in Atlas",
+        "number": 48,
+        "status": "applying",
+        "url": "https://atlas.hashicorp.com/example-org/environments/example-environment/changes/runs/48"
+      }
+    }
 
 Valid values for `status` are:
 
-```
-planned
-confirmed
-discarded
-applied
-applying
-errored
-```
+    planned
+    confirmed
+    discarded
+    applying
+    applied
+    errored
