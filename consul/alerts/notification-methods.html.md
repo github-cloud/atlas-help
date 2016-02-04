@@ -86,9 +86,7 @@ To configure PagerDuty:
 Notifications can be sent to custom Webhook URLs to allow for integration
 into third-party systems. An HTTP _Post_ will be sent with the Post _Body_
 containing the JSON payload with the notification details. Example JSON
-payloads are shown below.
-
-> Note: The Webhook URL must be accessible from Atlas.
+payloads are shown below. **Note**: The Webhook URL must be accessible from Atlas.
 
 ### Example Notification Payloads
 
