@@ -1,11 +1,11 @@
 ---
 title: "Rolling Deployments"
-description: "How do I configure rolling deployments in Atlas"
+description: "How do I configure rolling deployments in Atlas?"
 ---
 
 # Rolling Deployments
 
-*How do I configure rolling deployments in Atlas*
+*How do I configure rolling deployments in Atlas?*
 
 User are able to quickly change out an Artifact version that is being utilized by Terraform, using variables within Atlas. This is
 particularly useful when testing specific versions of the given artifact without performing a full rollout. This configuration also allows one
@@ -13,7 +13,7 @@ to deploy any version of an artifact with ease, simply by changing a version var
 
 Here is an example:
 
-    variable "type"           { default = "amazon.ami" }
+    variable "type"           { default = "amazon.image" }
     variable "region"         { }
     variable "atlas_username" { }
     variable "pinned_name"    { }
@@ -34,12 +34,12 @@ Here is an example:
     output "pinned" { value = "${atlas_artifact.pinned.metadata_full.ami_id}" }
 
 
-In the above example we have an `atlas_artifact` resource where you pass in the version number via a variable (_note: this variable defaults to latest_).
-If you ever want to deploy any other version, you just update your Terraform variable in Atlas and redeploy.
+In the above example we have an `atlas_artifact` resource where you pass in the version number via the variable `pinned_version`. (_note: this variable defaults to latest_).
+If you ever want to deploy any other version, you just update the variable `pinned_version` in Atlas and redeploy.
 
-Below is similar to the first example, but is in the form of a module that handles the creation of Atlas artifacts:
+Below is similar to the first example, but it is in the form of a module that handles the creation of Atlas artifacts:
 
-    variable "type"             { default = "amazon.ami" }
+    variable "type"             { default = "amazon.image" }
     variable "region"           { }
     variable "atlas_username"   { }
     variable "artifact_name"    { }
@@ -69,20 +69,9 @@ One can then use the module as follows (_note: the source will likely be differe
       artifact_version = "${var.consul_artifacts}"
     }
 
-    module "artifact_vault" {
-      source = "../../../modules/aws/util/artifact"
 
-      type             = "${var.artifact_type}"
-      region           = "${var.region}"
-      atlas_username   = "${var.atlas_username}"
-      artifact_name    = "${var.vault_artifact_name}"
-      artifact_version = "${var.vault_artifacts}"
-    }
-
-In the above example, we have created an artifact for both Vault and Consul. In this example, we can create two versions of the artifact,
+In the above example, we have created artifacts for Consul. In this example, we can create two versions of the artifact,
 "latest" and "pinned". This is useful when rolling a cluster (like Consul) one node at a time, keeping some nodes pinned to current version and others
 deployed with the latest Artifact.
 
-Checkout how this is used in it's entirety over at
-the [Best-Practices Repo](https://github.com/hashicorp/best-practices/blob/master/terraform/providers/aws/us_east_1_prod/us_east_1_prod.tf#L105-L123), as
-there are some things uncovered in this FAQ (i.e Using the Atlas Artifact in an instance).
+There are additional details for implementing rolling deployments in the [Best-Practices Repo](https://github.com/hashicorp/best-practices/blob/master/terraform/providers/aws/us_east_1_prod/us_east_1_prod.tf#L105-L123), as there are some things uncovered in this FAQ (i.e Using the Atlas Artifact in an instance).
