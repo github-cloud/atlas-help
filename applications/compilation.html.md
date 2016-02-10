@@ -87,7 +87,7 @@ is demonstrated below.
 
 The artifact can be stored as any type or under any artifact in Atlas,
 as long as it is accessible later by the same user triggering builds
-that use the artifact. It is worth noting, that one should use `.tar.gz` as their
+that use the artifact. It is worth noting, that one must use `.tar.gz` as their
 artifact in order to properly to utilize the pipeline. When a Build Template is specified, Atlas
 expects the Artifact of the compiled application to be a `.tar.gz` file. This archive is autoextracted
 to a source directory `app/` on the Packer build specified.
