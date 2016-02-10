@@ -158,8 +158,8 @@ This template is a working example of how to use the resulting Artifact from the
 
     {
       "variables": {
-        "aws_access_key": "{{ env `aws_access_key` }}",
-        "aws_secret_key": "{{ env `aws_access_key` }}",
+        "aws_access_key": "{{ env `AWS_ACCESS_KEY_ID` }}",
+        "aws_secret_key": "{{ env `AWS_SECRET_ACCESS_KEY` }}",
         "atlas_username": "{{ env `atlas_username` }}"
       },
       "builders": [
