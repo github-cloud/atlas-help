@@ -1,11 +1,11 @@
 ---
 title: "Monolithic Artifacts"
-description: "How do I build multiple applications into one artifact"
+description: "How do I build multiple applications into one artifact?"
 ---
 
 # Monolithic Artifacts
 
-*How do I build multiple applications into one artifact*
+*How do I build multiple applications into one artifact?*
 
 
 Create your [new Applications](https://atlas.hashicorp.com/applications/new) in Atlas using the [application compilation feature](https://atlas.hashicorp.com/help/applications/compilation).
