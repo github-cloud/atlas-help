@@ -186,6 +186,10 @@
         <h4><%= help_link "Glossary", "glossary" %></h4>
     </li>
 
+    <li class="expandable <%= "active" if help_active?("faq") %>">
+        <h4><%= help_link "FAQ", "faq" %></h4>
+    </li>
+
     <li class="expandable <%= "active" if help_active?("support") %>">
         <h4><%= help_link "Contact Support", "support" %></h4>
     </li>
