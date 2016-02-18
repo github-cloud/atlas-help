@@ -48,7 +48,7 @@ the modules and their output:
 	  }
 	}
 
-Each environment should setup [remote state storage in Atlas](http://terraform.io/docs/state/remote.html) separately:
+Each environment should setup [remote state storage in Atlas](https://www.terraform.io/docs/state/remote/index.html) separately:
 
 	$ terraform remote config -backend-config="name=hashicorp/prod"
 	$ terraform remote config -backend-config="name=hashicorp/qa"
