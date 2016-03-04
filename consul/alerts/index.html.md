@@ -4,8 +4,8 @@ title: "About Consul Alerts"
 
 # About Consul Alerts
 
-[Consul](https://consul.io) can be connected to Atlas to automatically provide
-alerts to several different [notification
+[Consul](https://www.consul.io) can be connected to Atlas to automatically
+provide alerts to several different [notification
 methods](/help/consul/alerts/notification-methods), including Slack, email,
 HipChat and Pagerduty.
 
