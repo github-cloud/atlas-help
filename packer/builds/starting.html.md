@@ -18,7 +18,7 @@ and packaged directory.
 
 The directory is included in order to run any associated provisioners,
 builds or post-processors that all might use local files. For example,
-a shell script or set of Puppet modules used in a Packer build need
+a shell script or set of Puppet modules used in a Packer build needs
 to be part of the upload for Packer to be run remotely.
 
 By default, everything in your directory is uploaded as part of the push.
